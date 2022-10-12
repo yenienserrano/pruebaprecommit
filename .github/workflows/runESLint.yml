@@ -21,7 +21,7 @@ jobs:
           path: /home/runner/work/pruebaprecommit/pruebaprecommit
       - name: Step 02 - Install dependencies of wazuh
         run: |
-          cd wazuh
+          cd /home/runner/work/pruebaprecommit/pruebaprecommit
           yarn install
       - name: Step 03 - Run ESLint
         run: |
