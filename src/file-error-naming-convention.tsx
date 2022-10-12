@@ -1,3 +1,3 @@
-export const fileErrorNamingConvention = () => {
-  return <div>File Error Naming Convention</div>;
+export const itsOkNow = () => {
+  return <div>its ok now </div>;
 };
