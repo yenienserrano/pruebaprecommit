@@ -14,7 +14,6 @@ jobs:
   setup-wazuh-app:
     name: Run setup environment wazuh app
     runs-on: ubuntu-latest
-    env:
     steps:
       - name: Step 01 - Download Project wazuh-app
         uses: actions/checkout@v2
