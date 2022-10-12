@@ -17,13 +17,10 @@ jobs:
     steps:
       - name: Step 01 - Download Project wazuh-app
         uses: actions/checkout@v2
-        with:
-          path: /home/runner/work/pruebaprecommit/pruebaprecommit
+        
       - name: Step 02 - Install dependencies of wazuh
         run: |
-          cd /home/runner/work/pruebaprecommit/pruebaprecommit
-          yarn install
+          yarn
       - name: Step 03 - Run ESLint
         run: |
-          cd /home/runner/work/pruebaprecommit/pruebaprecommit
           yarn run lint
