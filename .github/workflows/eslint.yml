@@ -11,10 +11,12 @@ name: ESLint
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master", "*.*-*.*", "*.*-*.*-wzd", "main" ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
+    branches: [ "*.*-*.*", "*.*-*.*-wzd", "main" ]
+  # schedule:
+  #   - cron: '28 18 * * 0'
 
 jobs:
   eslint:
@@ -28,9 +30,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dep
+      - name: Install ESLint and its dependencies from the project's package.json
         run: |
           yarn
 
       - name: Run ESLint
-        run: yarn run lint
+        run: yarn lint
+        continue-on-error: true
+
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: eslint-results.sarif
+          wait-for-processing: true
