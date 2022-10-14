@@ -1,3 +1,3 @@
 export const itsOkNow = () => {
-  return <div>its ok now </div>;
+  return <div>its ok now ! </div>;
 };
